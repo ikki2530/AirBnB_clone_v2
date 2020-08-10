@@ -115,6 +115,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """Creates a new BaseModel instance
+        Exceptions:
+            SyntaxError: no args
+            NameError: no existing class
         """
         if not args:
             print("** class name missing **")
