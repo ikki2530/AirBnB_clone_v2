@@ -2,6 +2,7 @@
 """ """
 from tests.test_models.test_base_model import test_basemodel
 from models.place import Place
+import pep8
 
 
 class test_Place(test_basemodel):
@@ -67,3 +68,9 @@ class test_Place(test_basemodel):
         """ """
         new = self.value()
         self.assertEqual(type(new.amenity_ids), list)
+
+    def test_Place_pep8(self):
+        """ tests pep8 compliance """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['./models/place.py'])
+        self.assertEqual(result.total_errors, 0)
