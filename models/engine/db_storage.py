@@ -20,6 +20,7 @@ class DBStorage:
     clases = [State, City, User, Place, Review, Amenity]
 
     def __init__(self):
+        """DBStorage"""
         self.__engine = create_engine("{}+{}://{}:{}@{}:3306/{}".format(
             'mysql', 'mysqldb', getenv('HBNB_MYSQL_USER'),
             getenv('HBNB_MYSQL_PWD'), getenv('HBNB_MYSQL_HOST'),

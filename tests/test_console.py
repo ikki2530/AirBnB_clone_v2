@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""These are tests for the console"""
+"""These are tests for the console PASO"""
 import unittest
 import pep8
 from console import HBNBCommand
