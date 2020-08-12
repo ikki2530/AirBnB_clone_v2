@@ -20,8 +20,8 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
 
-    if os.environ.get("HBNB_TYPE_STORAGE") == "db":
-        reviews = relationship("Review", backref="place", cascade="all,delete")
+    # if os.environ.get("HBNB_TYPE_STORAGE") == "db":
+    #     reviews = relationship("Review", backref="place", cascade="all,delete")
 
     # @property
     # def reviews(self):
