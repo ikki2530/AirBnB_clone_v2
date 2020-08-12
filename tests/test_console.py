@@ -1,7 +1,9 @@
+#!/usr/bin/python3
 """These are tests for the console"""
 import unittest
 import pep8
 from console import HBNBCommand
+
 
 class TestConsole(unittest.TestCase):
     """Testing the console"""
