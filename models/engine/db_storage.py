@@ -26,10 +26,22 @@ class DBStorage:
         new_dict = {}
         if cls is not None:
             query = self.__session().query(cls).all()
+            # creating the dictionary
+            for obj in query:
+                cls_name = obj.__class__.__name__
+                obj_id = obj.id
+                key = cls_name + "." + obj_id
+                new_dict[key] = obj
+            return new_dict
         else:
             for clase in self.clases:
                 query = self.__session().query(clase).all()
-                print(query)
+                for obj in query:
+                    cls_name = obj.__class__.__name__
+                    obj_id = obj.id
+                    key = cls_name + "." + obj_id
+                    new_dict[key] = obj
+            return new_dict
 
 
     def new(self, obj):

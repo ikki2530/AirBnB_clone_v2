@@ -13,5 +13,7 @@ class State(BaseModel, Base):
     if os.environ.get("HBNB_TYPE_STORAGE") == "db":
         name = Column(String(128), nullable=False)
         cities = relationship("City", backref="state", cascade="all,delete")
-    else:
-        pass
+
+
+
+

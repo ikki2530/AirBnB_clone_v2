@@ -34,6 +34,7 @@ class BaseModel:
                 if key != "__class__":
                     setattr(self, key, val)
 
+
     def __str__(self):
         """Returns a string representation of the instance"""
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
@@ -47,6 +48,7 @@ class BaseModel:
 
     def to_dict(self):
         """Convert instance into dict format"""
+        print("from dict-----------------------------")
         dictionary = {}
         dictionary.update(self.__dict__)
         dictionary.update({'__class__':
