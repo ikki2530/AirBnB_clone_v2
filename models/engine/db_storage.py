@@ -7,14 +7,15 @@ from models.base_model import Base
 from models.base_model import BaseModel
 from models.state import State
 from models.city import City
-from models.user import User 
+from models.user import User
+from models.place import Place
 
 
 class DBStorage:
     """This class manages storage of db"""
     __engine = None
     __session = None
-    clases = [State, City, User]
+    clases = [State, City, User, Place]
 
     def __init__(self):
         self.__engine = create_engine("{}+{}://{}:{}@{}:3306/{}".format(
