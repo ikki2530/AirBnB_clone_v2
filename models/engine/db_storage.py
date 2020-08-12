@@ -10,13 +10,14 @@ from models.city import City
 from models.user import User
 from models.place import Place
 from models.review import Review
+from models.amenity import Amenity
 
 
 class DBStorage:
     """This class manages storage of db"""
     __engine = None
     __session = None
-    clases = [State, City, User, Place, Review]
+    clases = [State, City, User, Place, Review, Amenity]
 
     def __init__(self):
         self.__engine = create_engine("{}+{}://{}:{}@{}:3306/{}".format(

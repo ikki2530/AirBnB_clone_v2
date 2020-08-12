@@ -1,9 +1,17 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Table
 from sqlalchemy.orm import relationship
 import os
+
+
+place_amenity = Table('place_amenity', Base.metadata, Column(
+    'place_id', String(60), ForeignKey('places.id'), primary_key=True,
+    nullable=False), Column(
+    'amenity_id', String(60),
+    ForeignKey('amenities.id'), primary_key=True, nullable=False)
+)
 
 
 class Place(BaseModel, Base):
@@ -22,6 +30,10 @@ class Place(BaseModel, Base):
 
     if os.environ.get("HBNB_TYPE_STORAGE") == "db":
         reviews = relationship("Review", backref="place", cascade="all,delete")
+        amenities = relationship(
+            "Amenity",
+            secondary=place_amenity,
+            back_populates="place_amenities", viewonly=False)
 
     @property
     def reviews(self):
@@ -37,6 +49,21 @@ class Place(BaseModel, Base):
                 if value.to_dict()["place_id"] == self.id:
                     reviews.append(value)
         return reviews
+
+    # @property
+    # def amenities(self):
+    #     """ the getter method for the cities """
+    #     from models import storage
+    #     if os.getenv('HBNB_TYPE_STORAGE') == 'db':
+    #         return
+    #     amenities = []
+    #     filestorage = storage.FileStorage_objects
+    #     for key, value in filestorage.items():
+    #         lista = key.split()
+    #         if lista[0] == "Amenity":
+    #             if value.to_dict()["place_amenities"] == self.id:
+    #                 amenities.append(value)
+    #     return amenities
     # city_id = ""
     # user_id = ""
     # name = ""
