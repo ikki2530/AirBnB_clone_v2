@@ -3,7 +3,7 @@
 <a href="https://ibb.co/qyd6YzT"><img src="https://i.ibb.co/SsPSw2F/sdsds.png" alt="sdsds" border="0"></a>
 
 
-This repository contains:
+This repository contains
 
 The second part of the backend of project that is about to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program Data Base. Console commands allow the user to create, update, and destroy objects, as well as manage the Data Base.
 
