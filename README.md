@@ -12,9 +12,14 @@ The second part of the backend of project that is about to build a clone of the 
 ### Usage
 1. First clone this repository.
 
-3. Once the repository is cloned locate the "console.py" file and run it as follows:
+2. create the databases
 ```
-/AirBnB_clone$ ./console.py
+/AirBnB_clone$ cat setup_mysql_dev.sql | mysql -hlocalhost -uroot -p
+```
+
+3. Locate the "console.py" file and run it as follows:
+```
+/AirBnB_clone$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py 
 ```
 4. When this command is run the following prompt should appear:
 ```
@@ -60,10 +65,10 @@ Advanced syntax is implemented for the following commands:
 ###### Example 0: Create an object
 Usage: create <class_name>
 ```
-(hbnb) create BaseModel
+(hbnb) create State name="California"
 ```
 ```
-(hbnb) create BaseModel
+(hbnb) create City state_id="95a5abab-aa65-4861-9bc6-1da4a36069aa" name="San_Francisco"
 3aa5babc-efb6-4041-bfe9-3cc9727588f8
 (hbnb)                   
 ```
