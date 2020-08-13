@@ -9,6 +9,10 @@ import pep8
 class test_fileStorage(unittest.TestCase):
     """ Class to test the file storage method """
 
+    # def setUp(self):
+    #     """ Set up test environment """
+    #     self.db = DBStorage()
+
     def test_file_storage_pep8(self):
         """ tests pep8 compliance """
         pep8style = pep8.StyleGuide(quiet=True)
@@ -22,6 +26,13 @@ class test_fileStorage(unittest.TestCase):
         self.assertIsNotNone(DBStorage.save.__doc__)
         self.assertIsNotNone(DBStorage.delete.__doc__)
         self.assertIsNotNone(DBStorage.reload.__doc__)
+
+    # def test_all(self):
+    #     self.db.reload()
+    #     data = db.all()
+    #     print("--------------------")
+    #     print(data)
+
 
     # def setUp(self):
     #     """ Set up test environment """

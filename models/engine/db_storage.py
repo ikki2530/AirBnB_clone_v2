@@ -36,7 +36,7 @@ class DBStorage:
             query = self.__session().query(cls).all()
             # creating the dictionary
             for obj in query:
-                delattr(obj, '_sa_instance_state')
+                # delattr(obj, '_sa_instance_state')
                 cls_name = obj.__class__.__name__
                 obj_id = obj.id
                 key = cls_name + "." + obj_id
@@ -46,7 +46,7 @@ class DBStorage:
             for clase in self.clases:
                 query = self.__session().query(clase).all()
                 for obj in query:
-                    delattr(obj, '_sa_instance_state')
+                    # delattr(obj, '_sa_instance_state')
                     cls_name = obj.__class__.__name__
                     obj_id = obj.id
                     key = cls_name + "." + obj_id
