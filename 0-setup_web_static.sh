@@ -16,5 +16,5 @@ echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\
 ln -sf data/web_static/releases/test/ data/web_static/current
 
 chown -R ubuntu:ubuntu /data/
-sed -i "66 a\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-enabled/default
+sed -i "37 a\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/sites-enabled/default
 service nginx restart
