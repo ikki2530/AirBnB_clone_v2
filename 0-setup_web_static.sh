@@ -3,6 +3,7 @@
 if ! which nginx > /dev/null 2>&1; then
     sudo apt-get -y update
     sudo apt-get -y install nginx
+fi
 
 mkdir -p data
 mkdir -p data/web_static/
@@ -11,7 +12,7 @@ mkdir -p data/web_static/shared/
 mkdir -p data/web_static/releases/test/
 touch  data/web_static/releases/test/index.html
 file=data/web_static/releases/test/index.html
-echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\t<h1>Hola Mundo</h1>\n\t</body>\n</html>" > "$file"
+echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\tHolberton School\n\t</body>\n</html>" > "$file"
 ln -sf data/web_static/releases/test/ data/web_static/current
 
 chown -R ubuntu:ubuntu /data/
