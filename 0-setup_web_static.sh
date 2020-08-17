@@ -2,7 +2,8 @@
 # sets up your web servers for the deployment of web_static
 if ! which nginx > /dev/null 2>&1; then
     echo "Nginx not installed"
-
+    # sudo apt-get -y update
+    # sudo apt-get -y install nginx
 else
     echo "Installed"
 fi
@@ -18,6 +19,6 @@ echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\t<h1>Hola Mundo</h1>\n\t</bod
 ln -sf data/web_static/releases/test/ data/web_static/current
 
 chown -R ubuntu:ubuntu /data/
-sed -i  "66 \tlocation /hbnb_static/ {\n\t\talias /data/web_static/releases/test/\n\t}" /etc/nginx/sites-enabled/
-
+sed -i "66 a\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-enabled/default
+service nginx restart
 # ln -s data/web_static/releases/test/ data/web_static/current 
