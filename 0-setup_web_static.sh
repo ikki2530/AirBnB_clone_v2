@@ -7,18 +7,17 @@ else
     echo "Installed"
 fi
 
-sudo mkdir -p data
-sudo mkdir -p data/web_static/
-sudo mkdir -p data/web_static/releases/
-sudo mkdir -p data/web_static/shared/
-sudo mkdir -p data/web_static/releases/test/
-sudo touch -p data/web_static/releases/test/index.html
-file=/data/web_static/releases/test/index.html
+mkdir -p data
+mkdir -p data/web_static/
+mkdir -p data/web_static/releases/
+mkdir -p data/web_static/shared/
+mkdir -p data/web_static/releases/test/
+touch  data/web_static/releases/test/index.html
+file=data/web_static/releases/test/index.html
 echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\t<h1>Hola Mundo</h1>\n\t</body>\n</html>" > "$file"
+ln -sf data/web_static/releases/test/ data/web_static/current
 
-if [ [-L data/web_static/current] && [ -e data/web_static/current ]]; then
-    echo "symbolic link exists"
-else
-    echo "symbolic links doesn't exists"
-fi
+chown -R ubuntu:ubuntu /data/
+sed -i  "66 \tlocation /hbnb_static/ {\n\t\talias /data/web_static/releases/test/\n\t}" /etc/nginx/sites-enabled/
+
 # ln -s data/web_static/releases/test/ data/web_static/current 
