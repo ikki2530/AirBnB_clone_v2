@@ -12,8 +12,11 @@ sudo mkdir -p data/web_static/
 sudo mkdir -p data/web_static/releases/
 sudo mkdir -p data/web_static/shared/
 sudo mkdir -p data/web_static/releases/test/
-sudo mkdir -p data/web_static/releases/test/index.
-if [ ! -L data/web_static/current ]; then
+sudo touch -p data/web_static/releases/test/index.html
+file=/data/web_static/releases/test/index.html
+echo -e "<html>\n\t<head>\n\t</head>\n\t<body>\n\t\t<h1>Hola Mundo</h1>\n\t</body>\n</html>" > "$file"
+
+if [ [-L data/web_static/current] && [ -e data/web_static/current ]]; then
     echo "symbolic link exists"
 else
     echo "symbolic links doesn't exists"
