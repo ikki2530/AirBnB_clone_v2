@@ -16,15 +16,11 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
-        """ the getter method for the cities """
-        from models import storage
-        if os.getenv('HBNB_TYPE_STORAGE') == 'db':
-            return
-        cities = []
-        filestorage = storage.FileStorage_objects
-        for key, value in filestorage.items():
-            lista = key.split()
-            if lista[0] == "City":
-                if value.to_dict()["state_id"] == self.id:
-                    cities.append(value)
-        return cities
+        """get all cities
+        """
+        cities = models.storage.all(City)
+        city_l = []
+        for i in cities.values():
+            if self.id == i.state_id:
+                city_l.append(i)
+        return city_l
