@@ -32,7 +32,6 @@ def numb(n):
     """return n is a number"""
     if isinstance(n, int):
         return '{} is a number'.format(n)
-    print("------------------------------", type(n))
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=5000)
