@@ -2,9 +2,9 @@
 """starts a Flask web application"""
 from flask import Flask
 from flask import render_template
-
-
 app = Flask(__name__)
+
+
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """function for root /"""
@@ -47,4 +47,4 @@ def temp_oddeven(n):
         return render_template('6-number_odd_or_even.html', n=n)
 
 if __name__ == '__main__':
-      app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000)
