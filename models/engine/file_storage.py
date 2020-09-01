@@ -64,7 +64,7 @@ class FileStorage:
             if key in FileStorage.__objects:
                 del FileStorage.__objects[key]
             self.save()
-    # new methods
+
     def close(self):
         """reload the JSON file"""
         self.reload()
