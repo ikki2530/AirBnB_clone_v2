@@ -11,11 +11,7 @@ app = Flask(__name__)
 @app.route('/states_list', strict_slashes=False)
 def states_li():
     """Call the template to list states"""
-    list_states = []
-    for val in sts.values():
-        list_states.append(val)
-    list_ordenada = sorted(list_states, key=lambda x: x.name)
-    return render_template('7-states_list.html', states=list_ordenada)
+    return render_template('7-states_list.html', states=sts)
 
 
 @app.teardown_appcontext
