@@ -13,8 +13,10 @@ def states_li():
     sts = storage.all(State)
     return render_template('7-states_list.html', states=sts)
 
+
 @app.route('/states/<id>', strict_slashes=False)
 def stateby_id(id):
+    """Select state by id"""
     sts = storage.all(State)
 
     for st in sts.values():
@@ -25,6 +27,7 @@ def stateby_id(id):
         state = ''
 
     return render_template('9-states.html', state=state)
+
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
