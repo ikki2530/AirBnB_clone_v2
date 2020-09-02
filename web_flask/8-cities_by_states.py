@@ -13,6 +13,7 @@ def cities_li():
     sts = storage.all(State)
     return render_template('8-cities_by_states.html', states=sts)
 
+
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     """close the sessions"""
